@@ -21,6 +21,8 @@ git fetch --tags
 
 cd "$TRAVIS_BUILD_DIR"
 
+git checkout $TRAVIS_BRANCH
+
 if git tag "$GIT_TAG" -a -m "Tag Generated from TravisCI for build $TRAVIS_BUILD_NUMBER" 2>/dev/null ; then 
   git add TRINITYCORE_NAMI_REVISION
   git commit -m "[TravisCI] Increase Revision file [ci skip]" 
@@ -28,4 +30,3 @@ if git tag "$GIT_TAG" -a -m "Tag Generated from TravisCI for build $TRAVIS_BUILD
 else 
   echo "Tag already exists!"
 fi
-
