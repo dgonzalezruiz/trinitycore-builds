@@ -41,8 +41,8 @@ log "========================="
 log "Performing compilation..."
 # Compilation skipped for debugging purposes. Simulating...
 #make -j 8 -k && make install
-mkdir -p $TRAVIS_BUILD_DIR/TrinityCore/trinitycore/bin
-touch $TRAVIS_BUILD_DIR/TrinityCore/trinitycore/bin/test
+mkdir -p $TRAVIS_BUILD_DIR/TrinityCore/bin/trinitycore/bin
+touch $TRAVIS_BUILD_DIR/TrinityCore/bin/trinitycore/bin/test
 log "========================="
 
 tcd TrinityCore/bin/trinitycore/bin
