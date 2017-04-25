@@ -39,14 +39,11 @@ mysql -uroot < sql/create/drop_mysql.sql
 tcd TrinityCore/bin
 log "========================="
 log "Performing compilation..."
-# Compilation skipped for debugging purposes. Simulating...
-#make -j 8 -k && make install
-mkdir -p $TRAVIS_BUILD_DIR/TrinityCore/bin/trinitycore/bin
-touch $TRAVIS_BUILD_DIR/TrinityCore/bin/trinitycore/bin/test
+make -j 8 -k && make install
 log "========================="
 
 tcd TrinityCore/bin/trinitycore/bin
-#./worldserver --version
-#./authserver --version
+./worldserver --version
+./authserver --version
 
 tcd TrinityCore/bin
