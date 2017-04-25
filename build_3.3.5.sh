@@ -10,6 +10,7 @@ tcd() {
 
 set -e
 
+export CC=clang-3.9 CXX=clang++-3.9
 
 ## A DB is created for Travis testing purposes
 mysql -uroot -e 'create database test_mysql;'
