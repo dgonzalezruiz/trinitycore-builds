@@ -26,7 +26,7 @@ git checkout $TRAVIS_BRANCH
 if git tag "$GIT_TAG" -a -m "Tag Generated from TravisCI for build $TRAVIS_BUILD_NUMBER" 2>/dev/null ; then 
   git add TRINITYCORE_NAMI_REVISION
   git commit -m "[TravisCI] Increase Revision file [ci skip]" 
-  git push -q https://"$GH_TOKEN"@github.com/dgonzalezruiz/TrinityCore.git --follow-tags 
+  git push -q https://"$GH_TOKEN"@github.com/dgonzalezruiz/trinitycore-builds.git --follow-tags 1> /dev/null
 else 
   echo "Tag already exists!"
 fi
