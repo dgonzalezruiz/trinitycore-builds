@@ -11,9 +11,8 @@ echo "$NEW_TRINITYCORE_REVISION" > "$TRAVIS_BUILD_DIR"/TRINITYCORE_NAMI_REVISION
 
 export GIT_TAG=`cat $TRAVIS_BUILD_DIR/TRINITYCORE_NAMI_VERSION`-r`cat $TRAVIS_BUILD_DIR/TRINITYCORE_NAMI_REVISION`
 
-tcd "TrinityCore/bin"
+tcd
 tar vczf trinitycore-"$GIT_TAG".tar.gz trinitycore
-mv trinitycore-*.tar.gz "$TRAVIS_BUILD_DIR"
 
 git config --global user.email "builds@travis-ci.com"
 git config --global user.name "Travis CI"
