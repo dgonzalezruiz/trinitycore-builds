@@ -1,6 +1,10 @@
 sudo: required
 dist: trusty
-cache: false
+cache: 
+  timeout: 7200
+  directories:
+    - TrinityCore/bin/trinitycore
+
 language: cpp
 compiler:
   - clang
