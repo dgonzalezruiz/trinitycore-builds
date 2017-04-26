@@ -12,7 +12,7 @@ set -e
 
 export CC=clang-3.9 CXX=clang++-3.9
 
-if [ ! -f $TRAVIS_BUILD_DIR/Trinitycore/bin/trinitycore/bin/worldserver ] ; then 
+if [ ! -f $TRAVIS_BUILD_DIR/trinitycore/bin/worldserver ] ; then 
   ## A DB is created for Travis testing purposes
   mysql -uroot -e 'create database test_mysql;'
 
