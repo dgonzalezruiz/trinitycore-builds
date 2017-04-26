@@ -26,7 +26,7 @@ if git tag "$GIT_TAG" -a -m "Tag Generated from TravisCI for build $TRAVIS_BUILD
   git add TRINITYCORE_NAMI_REVISION
   git commit -m "[TravisCI] Increase Revision file [ci skip]" 
   git push -q https://"$GH_TOKEN"@github.com/dgonzalezruiz/trinitycore-builds.git 1> /dev/null
-  git push --tags
+  git push -q https://"$GH_TOKEN"@github.com/dgonzalezruiz/trinitycore-builds.git --tags
 else 
   echo "Tag already exists!"
 fi
