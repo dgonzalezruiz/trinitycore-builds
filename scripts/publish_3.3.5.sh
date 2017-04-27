@@ -22,9 +22,9 @@ cd "$TRAVIS_BUILD_DIR"
 
 git checkout $TRAVIS_BRANCH
 
-if git tag "$GIT_TAG" -a -m "Checking if the tag already exists..." 2>/dev/null ; then 
+if git tag "$GIT_TAG" -a -m "Checking if the tag already exists..." 2>/dev/null ; then
   git add TRINITYCORE_NAMI_REVISION
-  git commit -m "[TravisCI] Increase Revision file [ci skip]" 
+  git commit -m "[TravisCI] Increase Revision file [ci skip]"
   git push -q https://"$GH_TOKEN"@github.com/dgonzalezruiz/trinitycore-builds.git 1> /dev/null
   ## The tag is deleted (locally), so that the latest commit for the revision file is included in the tag
   ## When retagging now.

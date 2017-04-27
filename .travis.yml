@@ -1,3 +1,5 @@
+sudo: required
+dist: trusty
 cache: 
   timeout: 7200
   directories:
@@ -8,12 +10,12 @@ compiler:
   - clang
 
 before_install:
-  - "./prepare_env.sh"
+  - "git clone -b 3.3.5 --single-branch https://github.com/TrinityCore/TrinityCore"
 install:
-  - "./build_3.3.5.sh"
+  - "./scripts/build_3.3.5.sh"
 
 script:
-  - "./publish_3.3.5.sh"
+  - "./scripts/publish_3.3.5.sh"
 
 deploy:
   provider: releases
