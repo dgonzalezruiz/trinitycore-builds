@@ -1,4 +1,3 @@
-sudo: required
 cache: 
   timeout: 7200
   directories:
