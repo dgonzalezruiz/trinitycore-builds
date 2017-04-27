@@ -1,5 +1,4 @@
 sudo: required
-dist: trusty
 cache: 
   timeout: 7200
   directories:
