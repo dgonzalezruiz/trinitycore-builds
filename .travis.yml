@@ -1,9 +1,10 @@
-service: docker
+
 cache: 
   timeout: 7200
   directories:
     - trinitycore
 
+service: docker
 language: cpp
 compiler:
   - clang
