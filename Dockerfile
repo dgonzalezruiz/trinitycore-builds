@@ -16,4 +16,3 @@ ENV CC=clang-3.9 \
 VOLUME ["/TrinityCore", "/trinitycore"]
 
 CMD ["./compile_3.3.5.sh"]
-~
