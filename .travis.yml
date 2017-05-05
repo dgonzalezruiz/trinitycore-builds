@@ -1,6 +1,6 @@
 
 cache: 
-  timeout: 7200
+  timeout: 500
   directories:
     - trinitycore
 
