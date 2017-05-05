@@ -14,7 +14,7 @@ if [ ! -f $TRAVIS_BUILD_DIR/trinitycore/bin/worldserver ] ; then
   ## This folder is created in case it does not exist before. The compilation will be released here
   tcd 
   mkdir -p $TRAVIS_BUILD_DIR/trinitycore
-  docker build . -t buildEnvironment
+  docker build --tag buildEnvironment . 
   docker run -it -v $TRAVIS_BUILD_DIR/TrinityCore:/TrinityCore -v $TRAVIS_BUILD_DIR/trinitycore:/trinitycore buildEnvironment 
 else 
   log "======================================================"
