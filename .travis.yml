@@ -3,8 +3,6 @@ cache:
   timeout: 500
   directories:
     - trinitycore
-    
-cache: false
 
 services: docker
 language: cpp
