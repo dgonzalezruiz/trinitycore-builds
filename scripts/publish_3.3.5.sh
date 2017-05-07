@@ -25,7 +25,7 @@ cd "$TRAVIS_BUILD_DIR"
 
 git checkout $TRAVIS_BRANCH
 
-if [ ! -z $TRAVIS_TAG  ] ; then
+if [ -z $TRAVIS_TAG ] ; then
   # Only tag if this is an untagged commit 
   git tag "$GIT_TAG" -a -m "Tag Generated from TravisCI for build $TRAVIS_BUILD_NUMBER ; Changes: 
   $TRAVIS_COMMIT_MESSAGE" 1>/dev/null
