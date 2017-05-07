@@ -25,11 +25,9 @@ cd "$TRAVIS_BUILD_DIR"
 
 git checkout $TRAVIS_BRANCH
 
-if -z $TRAVIS_TAG ; then
-  ## The tag is deleted (locally), so that the latest commit for the revision file is included in the tag
-  ## When retagging now.
-  git tag "$GIT_TAG" -a -m "Tag Generated from TravisCI for build $TRAVIS_BUILD_NUMBER" 1>/dev/null
-  git push -q https://"$GH_TOKEN"@github.com/dgonzalezruiz/trinitycore-builds.git --tags
-else 
-  echo "Tag already exists!"
+if [ ! -z $TRAVIS_TAG  ] ; then
+  # Only tag if this is an untagged commit 
+  git tag "$GIT_TAG" -a -m "Tag Generated from TravisCI for build $TRAVIS_BUILD_NUMBER ; Changes: 
+  $TRAVIS_COMMIT_MESSAGE" 1>/dev/null
+  git push -q https://"$GH_TOKEN"@github.com/dgonzalezruiz/trinitycore-builds.git --tags 2>&1 1>/dev/null
 fi
