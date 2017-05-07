@@ -16,12 +16,10 @@ if [ ! -f $TRAVIS_BUILD_DIR/trinitycore/bin/worldserver ] ; then
   mkdir -p $TRAVIS_BUILD_DIR/trinitycore
   docker build --tag build_environment . 
   docker run -it -v $TRAVIS_BUILD_DIR/TrinityCore:/TrinityCore -v $TRAVIS_BUILD_DIR/trinitycore:/trinitycore build_environment
+  docker run -it -v $TRAVIS_BUILD_DIR/TrinityCore:/TrinityCore -v $TRAVIS_BUILD_DIR/trinitycore:/trinitycore build_environment /trinitycore/bin/authserver --version
+  docker run -it -v $TRAVIS_BUILD_DIR/TrinityCore:/TrinityCore -v $TRAVIS_BUILD_DIR/trinitycore:/trinitycore build_environment /trinitycore/bin/worldserver --version
 else 
   log "======================================================"
   log "Skipping compilation as a cached compilation was found"
   log "======================================================"
 fi
-
-tcd trinitycore/bin
-./worldserver --version
-./authserver --version
