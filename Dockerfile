@@ -11,7 +11,10 @@ RUN install_packages clang-3.9
 ADD ./scripts/rootfs /
 
 ENV CC=clang-3.9 \
-    CXX=clang++-3.9
+    CXX=clang++-3.9 \
+    PATH=/opt/bitnami/mysql/bin:$PATH
+
+RUN bitnami-pkg install mysql-client-10.1.23-0 --checksum 9c38e41f237a4b9ce1aca7b9ecad86be5c55b924880cef45b87d635a4aea9d3d
 
 VOLUME ["/TrinityCore", "/trinitycore"]
 
