@@ -5,7 +5,7 @@ log() {
     echo "$@" >&2
 }
 
-mysql -uroot -e 'create database test_mysql;'
+mysql -hmariadb -uroot -e 'create database test_mysql;'
 
 ## A DB is created for Travis testing purposes
 mkdir -p /TrinityCore/bin && cd /TrinityCore/bin
@@ -21,14 +21,14 @@ cd /TrinityCore && chmod +x contrib/check_updates.sh
 log "$CXX --version"
 
 ## Perforning full set up of databases for testing purposes
-mysql -uroot < sql/create/create_mysql.sql
-mysql -utrinity -ptrinity auth < sql/base/auth_database.sql
+mysql -hmariadb -uroot < sql/create/create_mysql.sql
+mysql -hmariadb -utrinity -ptrinity auth < sql/base/auth_database.sql
 ./contrib/check_updates.sh auth 3.3.5 auth
-mysql -utrinity -ptrinity characters < sql/base/characters_database.sql
+mysql -hmariadb -utrinity -ptrinity characters < sql/base/characters_database.sql
 ./contrib/check_updates.sh characters 3.3.5 characters
-mysql -utrinity -ptrinity world < sql/base/dev/world_database.sql
+mysql -hmariadb -utrinity -ptrinity world < sql/base/dev/world_database.sql
 cat sql/updates/world/3.3.5/*.sql | mysql -utrinity -ptrinity world
-mysql -uroot < sql/create/drop_mysql.sql
+mysql -hmariadb -uroot < sql/create/drop_mysql.sql
 
 cd /TrinityCore/bin
 log "========================="

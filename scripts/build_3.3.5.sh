@@ -14,8 +14,10 @@ if [ ! -f $TRAVIS_BUILD_DIR/trinitycore/bin/worldserver ] ; then
   ## This folder is created in case it does not exist before. The compilation will be released here
   tcd 
   mkdir -p $TRAVIS_BUILD_DIR/trinitycore
-  docker build --tag build_environment . 
-  docker run -it -v $TRAVIS_BUILD_DIR/TrinityCore:/TrinityCore -v $TRAVIS_BUILD_DIR/trinitycore:/trinitycore build_environment
+  docker network create trinitycore_compilation
+  docker build --tag build_environment .
+  docker run -d --name mariadb -e ALLOW_EMPTY_PASSWORD=yes --net=trinitycore_compilation bitnami/mariadb
+  docker run -it -v $TRAVIS_BUILD_DIR/TrinityCore:/TrinityCore -v $TRAVIS_BUILD_DIR/trinitycore:/trinitycore --net=trinitycore_compilation build_environment
 else 
   log "======================================================"
   log "Skipping compilation as a cached compilation was found"

@@ -1,6 +1,6 @@
 FROM bitnami/minideb-extras:jessie-r13
 
-RUN install_packages build-essential libtool make cmake cmake-data openssl libssl-dev libmysqlclient-dev libmysql++-dev libreadline6-dev zlib1g-dev libbz2-dev libboost1.55-dev libboost-thread1.55-dev libboost-filesystem1.55-dev libboost-system1.55-dev libboost-program-options1.55-dev libboost-iostreams1.55-dev wget software-properties-common git
+RUN install_packages build-essential libtool make cmake cmake-data openssl libssl-dev libreadline6-dev zlib1g-dev libbz2-dev libboost1.55-dev libboost-thread1.55-dev libboost-filesystem1.55-dev libboost-system1.55-dev libboost-program-options1.55-dev libboost-iostreams1.55-dev wget software-properties-common git p7zip
 
 RUN wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
 
