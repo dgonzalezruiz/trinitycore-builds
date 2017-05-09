@@ -10,11 +10,12 @@ tcd() {
 
 set -e
 
+ docker build --tag build_environment .
+
 if [ ! -f $TRAVIS_BUILD_DIR/trinitycore/bin/worldserver ] ; then 
   ## This folder is created in case it does not exist before. The compilation will be released here
   tcd 
   mkdir -p $TRAVIS_BUILD_DIR/trinitycore
-  docker build --tag build_environment .
   docker run -it -v $TRAVIS_BUILD_DIR/TrinityCore:/TrinityCore -v $TRAVIS_BUILD_DIR/trinitycore:/trinitycore build_environment
 else 
   log "======================================================"
