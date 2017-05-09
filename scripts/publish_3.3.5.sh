@@ -29,6 +29,4 @@ if [ -z $TRAVIS_TAG ] ; then
   git tag "$GIT_TAG" -a -m "Tag Generated from TravisCI for build $TRAVIS_BUILD_NUMBER ; Changes: 
   $TRAVIS_COMMIT_MESSAGE" 1>/dev/null
   git push -q https://"$GH_TOKEN"@github.com/dgonzalezruiz/trinitycore-builds.git --tags 2>&1 1>/dev/null
-else
-  
 fi
