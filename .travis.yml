@@ -24,6 +24,10 @@ deploy:
   file_glob: true
   skip_cleanup: true
   file: trinitycore-*.tar.gz
+after_deploy:
+  - "./scripts/push_nami.sh"
+
+
 env:
   global:
   - secure: t/mSPZXb7Cpmse3BtJCoRlYoMCn/CnTalwVgMs0vM5tbh8Qtfzh7MjN6RN6mh8HxLm2sX+//BNrit+mMK+eSWZT6PdOtBk8Ib6A8c80MFfgYONhPccpqPpFjctAU8tEHBva5P1Pgx8xYPYmSyLJdZIUfZgt1Dkw/Yz5Lx8xKP6OrtIG4477yvaNTGaWLF9E06ei5rsOD25W354A92k0m2L9zJWhtEOn7fdwsgbzJ/JZZvmd3PsBmSx7oEJPRdel9vhXGcP9X36yTtai3BCdZFp0/Zl71Hpc2QYYdkZ4Otey282yuzTi+fKLPTpIRhxQhUDn4UCWe81abnh9u4LtgtPcpgRv0W+2QlZGPr/5O2u/5uYsHRGM3EthDHYVQlFJxu+19MVg//PZeHpHyncb8GbyMTpRVyLr2Pl0Oqs8olNB72CD+rsFTf9oSzHzCGqa2TEBiiS7AEbcZwhLUnWFeKmkPpMVP8DcmdqxrrjEjjPL/Sy4v9c/m2P4Wx1KQkfzEOZ0bJrFGR3HYJR43oGQgTZIORB1ClBFz/gqeTI6xhLrWMJ88q1VOzD7GKz89WxgnNmRlVdRb9KD+0YMXm0FkCv0QL/hpDDcQF3dLsYAY+lnJ/BNHMGb8LuvAuyhbV1LPYKfsoVadr347Nxmt7pA954f+Ki6eGsSYQ+xq6kNk6ww=
