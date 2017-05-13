@@ -24,7 +24,9 @@ if [ -z $TRAVIS_TAG ] ; then
   # If this is a tagged build, then the tarball tag is that tag
   # If it is not, them we tag the tarball the same way we will tag the repo
   TARBALL_TAG=$CURRENT_TAG
-else TARBALL_TAG=$GIT_TAG
+else 
+  TARBALL_TAG=$GIT_TAG
+fi
 
 tar czf trinitycore-"$TARBALL_TAG".tar.gz trinitycore
 
