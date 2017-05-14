@@ -10,7 +10,7 @@ tcd() {
 }
 
 if [ -z $CASHER_TIME_OUT ] ; then
-  log "Either timeout seems to be disabled or the variable was renamed"
+  log "Either timeout seems to be disabled or the variable was renamed from Travis Org side"
   log "Proceeding to work without cache..."
   exit 0
 fi

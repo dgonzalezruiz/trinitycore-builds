@@ -8,10 +8,9 @@ compiler:
 - clang
 before_install:
 - git clone -b 3.3.5 --single-branch https://github.com/TrinityCore/TrinityCore
+- "./scripts/manage_cache.sh"
 install:
 - "./scripts/build_3.3.5.sh"
-before_script:
-- "./scripts/manage_cache.sh"
 script:
 - "./scripts/publish_3.3.5.sh"
 deploy:
