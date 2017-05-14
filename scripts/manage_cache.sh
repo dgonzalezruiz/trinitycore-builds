@@ -27,9 +27,6 @@ API_RESPONSE=$(curl -X GET \
 
 TRAVIS_TIME=$(echo $API_RESPONSE | grep -o "last_modified\": \".*Z\"" | cut -d\" -f3)
 
-echo $API_RESPONSE
-echo $TRAVIS_TIME
-
 if [ ! -z $TRAVIS_TIME ] ; then
   # In case there was more than one cache, we only need to know the date of the first
   TRAVIS_TIME=$(echo $TRAVIS_TIME | cut -d" " -f1)
@@ -38,12 +35,13 @@ if [ ! -z $TRAVIS_TIME ] ; then
   TIME_DIFFERENCE=$(( $CURRENT_TIMESTAMP - $TRAVIS_TIMESTAMP ))
   if [ $TIME_DIFFERENCE -gt $CASHER_TIME_OUT ] ; then
     # Cache must be invalidated
+    log "Deleting cache..."
     curl -X DELETE \
          -H "Content-Type: application/json" \
          -H "Travis-API-Version: 3" \
          -H "Accept: application/json" \
          -H "Authorization: token $TRAVIS_API_TOKEN" \
-         'https://api.travis-ci.org/repo/dgonzalezruiz%2Ftrinitycore-builds/caches'
+         'https://api.travis-ci.org/repo/dgonzalezruiz%2Ftrinitycore-builds/caches' > /dev/null
   else 
     log "Cache is too young to be executed. Using it..."
   fi
