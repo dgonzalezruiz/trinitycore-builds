@@ -6,6 +6,10 @@ tcd() {
   cd "$TRAVIS_BUILD_DIR"/"$1"
 }
 
+log() {
+    echo "$@" >&2
+}
+
 tcd
 
 git config --global user.email "builds@travis-ci.com"
