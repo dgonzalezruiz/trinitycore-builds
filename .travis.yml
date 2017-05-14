@@ -7,7 +7,6 @@ language: cpp
 compiler:
 - clang
 before_install:
-- printenv
 - git clone -b 3.3.5 --single-branch https://github.com/TrinityCore/TrinityCore
 - "./scripts/manage_cache.sh"
 install:
