@@ -18,7 +18,7 @@ CURRENT_TAG="$(git tag | tail -n1)"
 TRINITYCORE_NEW_REVISION=$(($(echo $CURRENT_TAG | cut -d'r' -f2) + 1))
 TRINITYCORE_VERSION=$(echo $CURRENT_TAG | cut -d'-' -f1)
 
-GIT_TAG=$TRINITYCORE_VERSION-r$TRINITYCORE_NEW_REVISIONM
+GIT_TAG=$TRINITYCORE_VERSION-r$TRINITYCORE_NEW_REVISION
 
 if [ -z $TRAVIS_TAG ] ; then
   # If this is a tagged build, then the tarball tag is that tag
