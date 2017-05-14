@@ -22,11 +22,12 @@ API_RESPONSE=$(curl -X GET \
                     -H "Authorization: token $TRAVIS_API_TOKEN" \
                     'https://api.travis-ci.org/repo/dgonzalezruiz%2Ftrinitycore-builds/caches')
 
-echo $API_RESPONSE
-
 # We calculate how old the cache is by comparing its timestamp
 # with the current time
 TRAVIS_TIME=$(echo $API_RESPONSE | grep -o "last_modified\": \".*Z\"" | cut -d\" -f3)
+log "==========="
+echo $TRAVIS_TIME
+log "What is this?"
 
 if [ ! -z TRAVIS_TIME ] ; then
   # In case there was more than one cache, we only need to know the date of the first
