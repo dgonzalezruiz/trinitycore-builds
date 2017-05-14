@@ -27,6 +27,9 @@ API_RESPONSE=$(curl -X GET \
 
 TRAVIS_TIME=$(echo $API_RESPONSE | grep -o "last_modified\": \".*Z\"" | cut -d\" -f3)
 
+echo $API_RESPONSE
+echo $TRAVIS_TIME
+
 if [ ! -z $TRAVIS_TIME ] ; then
   # In case there was more than one cache, we only need to know the date of the first
   TRAVIS_TIME=$(echo $TRAVIS_TIME | cut -d" " -f1)
