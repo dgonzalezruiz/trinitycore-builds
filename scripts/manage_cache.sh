@@ -29,7 +29,7 @@ TRAVIS_TIME=$(echo $API_RESPONSE | grep -o "last_modified\": \".*Z\"" | cut -d\"
 if [ ! -z TRAVIS_TIME ] ; then
   # In case there was more than one cache, we only need to know the date of the first
   TRAVIS_TIME=$(echo $TRAVIS_TIME | cut -d" " -f1)  
-  TRAVIS_TIMESTAMP=$(date +%s -d $CACHE_TIMER)
+  TRAVIS_TIMESTAMP=$(date +%s -d $TRAVIS_TIME)
   CURRENT_TIMESTAMP=$(date +%s)
   TIME_DIFFERENCE=$(( $CURRENT_TIMESTAMP - $TRAVIS_TIMESTAMP ))
   if [ $TIME_DIFFERENCE -gt $CASHER_TIME_OUT ] ; then
