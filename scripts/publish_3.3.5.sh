@@ -15,6 +15,11 @@ git fetch --tags
 git checkout $TRAVIS_BRANCH
 
 CURRENT_TAG="$(git tag | tail -n1)"
+if [ -z $CURRENT_TAG ] ; then
+  # We set the current tag to 0 if it does not exist
+  CURRENT_TAG="3.3.5-r0"
+fi 
+
 TRINITYCORE_NEW_REVISION=$(($(echo $CURRENT_TAG | cut -d'r' -f2) + 1))
 TRINITYCORE_VERSION=$(echo $CURRENT_TAG | cut -d'-' -f1)
 
