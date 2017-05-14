@@ -19,7 +19,7 @@ TRINITYCORE_NEW_REVISION=$(($(echo $CURRENT_TAG | cut -d'r' -f2) + 1))
 
 GIT_TAG=$TRINITYCORE_VERSION-r$TRINITYCORE_NEW_REVISION
 
-git clone -b $TRINITYCORE_VERSION --single-branch https://github.com/dgonzalezruiz/nami-trinitycore
+git clone https://github.com/dgonzalezruiz/nami-trinitycore
 
 tcd nami-trinitycore
 
