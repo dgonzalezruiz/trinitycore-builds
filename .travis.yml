@@ -1,5 +1,5 @@
 cache:
-  timeout: 7200
+  timeout: 86400
   directories:
   - trinitycore
 services: docker
