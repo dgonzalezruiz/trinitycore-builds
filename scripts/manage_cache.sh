@@ -42,6 +42,7 @@ if [ ! -z $TRAVIS_TIME ] ; then
          -H "Accept: application/json" \
          -H "Authorization: token $TRAVIS_API_TOKEN" \
          'https://api.travis-ci.org/repo/dgonzalezruiz%2Ftrinitycore-builds/caches' > /dev/null
+    log "Deleting cached stuff"
   else 
     log "Cache is too young to be executed. Using it..."
   fi
