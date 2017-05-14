@@ -25,6 +25,10 @@ TRINITYCORE_VERSION=$(echo $CURRENT_TAG | cut -d'-' -f1)
 
 GIT_TAG=$TRINITYCORE_VERSION-r$TRINITYCORE_NEW_REVISION
 
+log "============================="
+log "Setting CURRENT_TAG to $CURRENT_TAG"
+log "Setting GIT_TAG to $GIT_TAG"
+
 if [ -z $TRAVIS_TAG ] ; then
   # If this is a tagged build, then the tarball tag is that tag
   # If it is not, them we tag the tarball the same way we will tag the repo
@@ -32,6 +36,9 @@ if [ -z $TRAVIS_TAG ] ; then
 else 
   TARBALL_TAG=$GIT_TAG
 fi
+
+log "Setting TARBALL_TAG to $TARBALL_TAG"
+log "============================="
 
 tar czf trinitycore-"$TARBALL_TAG".tar.gz trinitycore
 
