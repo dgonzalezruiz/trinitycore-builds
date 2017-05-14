@@ -29,7 +29,7 @@ log "============================="
 log "Setting CURRENT_TAG to $CURRENT_TAG"
 log "Setting GIT_TAG to $GIT_TAG"
 
-if [ -z $TRAVIS_TAG ] ; then
+if [ ! -z $TRAVIS_TAG ] ; then
   # If this is a tagged build, then the tarball tag is that tag
   # If it is not, them we tag the tarball the same way we will tag the repo
   TARBALL_TAG=$CURRENT_TAG
