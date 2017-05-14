@@ -16,7 +16,7 @@ CURRENT_VERSION=$(echo $CURRENT_TAG | cut -d'-' -f1)
 
 git clone https://github.com/dgonzalezruiz/nami-trinitycore
 tcd nami-trinitycore
-git fetch --tags
+git pull --rebase
 git checkout $TRAVIS_BRANCH
 
 CURRENT_TAG="$(git tag | tail -n1)"
