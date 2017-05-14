@@ -25,6 +25,8 @@ API_RESPONSE=$(curl -X GET \
 # We calculate how old the cache is by comparing its timestamp
 # with the current time
 
+TRAVIS_TIME=$(echo $API_RESPONSE | grep -o "last_modified\": \".*Z\"" | cut -d\" -f3)
+
 if [ ! -z $TRAVIS_TIME ] ; then
   # In case there was more than one cache, we only need to know the date of the first
   TRAVIS_TIME=$(echo $TRAVIS_TIME | cut -d" " -f1)
